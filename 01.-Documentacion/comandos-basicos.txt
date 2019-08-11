@@ -1,0 +1,27 @@
+Instalación de entorno de trabajo para Laravel:
+
+instalar xampp con php mayor a 7.1.3 para que laravel pueda correr sin problemas
+instalar composer apuntando a php que se encuentra en la carpeta de xampp/php/php.exe
+instalar el instalador de laravel con el siguiente comando:
+	
+	composer global require laravel/installer
+
+para crear un nuevo proyecto laravel y ejecutar todos los comandos para el proyeco, 
+se necesita estar ubicado en la carpeta donde se creará dicho proyecto y correr el comando siguiente
+especificando el nombre del proyecto como último parámetro:
+	
+	laravel new inventario-laravel
+
+despues de crear la base de datos en mysql, configurar la conexion a la base de datos en el archivo .env 
+y comenzar a crear los modelos y las tablas:
+
+	Pasos para crear una interacción con la base de datos:
+
+    Comando básico para crear una migración o la estructura de la tabla
+        php artisan make:migration create_products_table
+    
+    Crea en la base de datos las tablas establecidas en la carpeta migration 
+        php artisan migrate
+    
+    Crae un modelo en el proyecto
+        php artisan make:model Product
