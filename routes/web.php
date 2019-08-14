@@ -12,6 +12,9 @@
     @Author: Luis Alberto García Rodríguez
 */
 
+use Illuminate\Http\Request;
+use App\Product;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,3 +26,16 @@ Route::get('products', function (){
 Route::get('products/create', function (){
     return view('products.create');
 })->name('products.create');
+
+Route::post('products' , function(Request $request){
+    // return 'Guardando productos...';
+    // return $request->all();
+    $new_product = new Product;
+
+    $new_product->description = $request->input('descripcion');
+    $new_product->price = $request->input('precio');
+
+    $new_product->save();
+
+    return redirect()->route('products.index');
+})->name('products.store');
