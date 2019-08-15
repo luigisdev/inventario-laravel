@@ -20,7 +20,12 @@ Route::get('/', function () {
 });
 
 Route::get('products', function (){
-    return view('products.index');
+    // Obtiene todos los datos de la tabla products 
+    // $productos = Product::all();
+
+    $productos = Product::orderBy('created_at', 'desc')->get();
+
+    return view('products.index', compact('productos'));
 })->name('products.index');
 
 Route::get('products/create', function (){
@@ -37,5 +42,6 @@ Route::post('products' , function(Request $request){
 
     $new_product->save();
 
-    return redirect()->route('products.index');
+    // Con el with se manda un mensaje de sessión unico con el texto a mostrar
+    return redirect()->route('products.index')->with('info', 'Producto guardado exitosamente...');
 })->name('products.store');
