@@ -45,3 +45,11 @@ Route::post('products' , function(Request $request){
     // Con el with se manda un mensaje de sessión unico con el texto a mostrar
     return redirect()->route('products.index')->with('info', 'Producto guardado exitosamente...');
 })->name('products.store');
+
+Route::delete('products/{id}', function($id){
+    // return $id;
+    $producto = Product::findOrFail($id);
+    // return $producto;
+    $producto->delete();
+    return redirect()->route('products.index')->with('info', 'Producto eliminado con éxito...');
+})->name('products.destroy');
