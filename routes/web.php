@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |   
-    @Author: Luis Alberto García Rodríguez
+| @Author: Luis Alberto García Rodríguez
 */
 
 use Illuminate\Http\Request;
@@ -53,3 +53,20 @@ Route::delete('products/{id}', function($id){
     $producto->delete();
     return redirect()->route('products.index')->with('info', 'Producto eliminado con éxito...');
 })->name('products.destroy');
+
+Route::get('products/edit/{id}', function($id){
+    $producto = Product::findOrFail($id);
+    return view('products.edit', compact('producto'));
+})->name('products.edit');
+
+Route::put('products/update/{id}', function(Request $request, $id){
+    // return $id;
+    // return $request->all();
+    $producto = Product::findOrFail($id);
+    $producto->description = $request->input('descripcion');
+    $producto->price = $request->input('precio');
+
+    $producto->save();
+
+    return redirect()->route('products.index')->with('info', 'Producto actualizado exitosamente...');
+})->name('products.update');

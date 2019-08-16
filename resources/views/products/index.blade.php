@@ -40,6 +40,7 @@
                                         {{ $producto->price }}
                                     </td>
                                     <td>
+                                        <a href="{{ route('products.edit', $producto->id) }}" class="btn btn-warning btn-sm">Editar</a>
                                         <a href="javascript: document.getElementById('delete-{{ $producto->id }}').submit();" class="btn btn-danger btn-sm">Eliminar</a>
                                         <form id="delete-{{ $producto->id }}" action="{{ route('products.destroy', $producto->id) }}" method="POST">
                                             @method('delete')
@@ -55,8 +56,3 @@
             </div>
         </div>
     </div>
-
-    <script src="{{ url('js/jquery-3.4.1.min.js') }} "></script>
-    <script src="{{ url('js/bootstrap.min.js') }}" ></script>
-</body>
-</html>
