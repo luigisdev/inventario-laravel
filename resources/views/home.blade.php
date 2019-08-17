@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Tablero Principal</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,11 +14,13 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <h2><strong>Ingresa a la sección en el boton</strong></h2>
                     <br>
                     <br>
                     <hr>
-                    <a href="{{ url('/products') }}" class="btn btn-primary">Productos</a>
+                    <a href="{{ url('/products') }}" class="btn btn-primary float-right">Productos</a>
+                    <br>
+                    <br>
                     <hr>
                 </div>
             </div>

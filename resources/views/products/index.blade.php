@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ url('/home') }}" class="btn btn-danger">Atrás</a>
+                        <a href="{{ url('/home') }}" class="btn btn-warning">Atrás</a>
                         <h1>Listado de productos</h1>
                         <a href="{{ route('products.create') }}" class="btn btn-success float-right">Nuevo producto</a>
                     </div>
@@ -42,6 +42,16 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <div class="card-footer">
+                        Bienvenido {{ auth()->user()->name }}
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-danger btn-sm float-right">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                     </div>
                 </div>
             </div>

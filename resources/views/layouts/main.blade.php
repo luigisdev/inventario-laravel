@@ -9,7 +9,7 @@
 
     <title>Products</title>
 </head>
-<body>
+<body class="my-4">
     @yield('contenido')
 
     <script src="{{ url('js/jquery-3.4.1.min.js') }} "></script>
