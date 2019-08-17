@@ -15,6 +15,11 @@
                     @endif
 
                     You are logged in!
+                    <br>
+                    <br>
+                    <hr>
+                    <a href="{{ url('/products') }}" class="btn btn-primary">Productos</a>
+                    <hr>
                 </div>
             </div>
         </div>

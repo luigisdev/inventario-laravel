@@ -5,8 +5,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Listado de productos
-                        <a href="{{ route('products.create') }}" class="btn btn-success bn-sm float-right">Nuevo producto</a>
+                        <a href="{{ url('/home') }}" class="btn btn-danger">Atrás</a>
+                        <h1>Listado de productos</h1>
+                        <a href="{{ route('products.create') }}" class="btn btn-success float-right">Nuevo producto</a>
                     </div>
                     <div class="body">
                         @if(session('info'))
