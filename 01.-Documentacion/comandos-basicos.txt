@@ -25,3 +25,8 @@ y comenzar a crear los modelos y las tablas:
     
     Crae un modelo en el proyecto
         php artisan make:model Product
+
+    Después de haber creado todo el sistema, y haber puesto las rutas dentro del middleware
+    se utiliza el siguiente comando para crear el login automaticamente
+
+        php artisan make:auth
